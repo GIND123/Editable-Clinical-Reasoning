@@ -1,0 +1,13 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+seed: 0
+output_dir: outputs/cot_sft/qwen3_4b_fold0
+fold_file: data/processed/direct.folds.json
+exclude_folds: [0, 1]
+train_files:                       # identical cases to the graph SFT (matched-data baseline)
+  - data/processed/direct.graphs.jsonl
+  - data/silver/medcasereasoning_train.silver.jsonl
+  - data/silver/mimic_note.silver.jsonl
+prefer_clinician_text: true        # use the clinician's own reasoning text where it exists
+lora: {r: 16, alpha: 32, dropout: 0.05}
+train: {batch_size: 1, grad_accum: 16, lr: 1.0e-4, epochs: 2, warmup_ratio: 0.03, save_steps: 500}

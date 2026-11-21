@@ -1,0 +1,14 @@
+# Second family (Gemma-3 based). MedGemma 4B is multimodal; text-only use via image_text_to_text class.
+# VERIFY the MedGemma 1.5 4B model id and licence (Health AI Developer Foundations terms).
+model:
+  name_or_path: google/medgemma-4b-it
+  revision: null
+  dtype: bfloat16
+  load_in_4bit: false
+  attn_implementation: eager   # Gemma-3 recommends eager attention
+  gradient_checkpointing: true
+  model_class: image_text_to_text
+  max_length: 8192
+mech:
+  sae_release: gemma-scope-2-4b-it   # Gemma Scope 2 (VERIFY release / sae_id naming in SAELens)
+  circuit_tools: saillab/medgemma-circuit-tools

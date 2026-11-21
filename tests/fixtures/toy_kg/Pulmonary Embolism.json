@@ -1,0 +1,4 @@
+{"diagnostic": {"Suspected PE": {"Acute PE": [], "Chronic Thromboembolic Disease": []}},
+ "knowledge": {"Suspected PE": "dyspnea; pleuritic chest pain; tachycardia; hypoxemia; unilateral leg swelling; recent immobilisation",
+               "Acute PE": "filling defect on CT pulmonary angiography; elevated D-dimer with high pre-test probability",
+               "Chronic Thromboembolic Disease": "persistent perfusion defects after >= 3 months of anticoagulation"}}

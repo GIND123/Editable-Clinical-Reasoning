@@ -1,0 +1,322 @@
+{
+  "$defs": {
+    "Diagnosis": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "category": {
+          "default": "open",
+          "title": "Category",
+          "type": "string"
+        },
+        "leaf": {
+          "title": "Leaf",
+          "type": "string"
+        },
+        "refines": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Refines"
+        },
+        "p": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P"
+        }
+      },
+      "required": [
+        "id",
+        "leaf"
+      ],
+      "title": "Diagnosis",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "note",
+        "clinician",
+        "new_finding",
+        "hypothetical"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "MNMStatus": {
+      "enum": [
+        "excluded",
+        "open",
+        "not_addressed"
+      ],
+      "title": "MNMStatus",
+      "type": "string"
+    },
+    "MustNotMiss": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "dx": {
+          "title": "Dx",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/MNMStatus",
+          "default": "not_addressed"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "dx"
+      ],
+      "title": "MustNotMiss",
+      "type": "object"
+    },
+    "Observation": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "concept": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Concept"
+        },
+        "polarity": {
+          "$ref": "#/$defs/Polarity",
+          "default": "present"
+        },
+        "source": {
+          "$ref": "#/$defs/EvidenceSource",
+          "default": "note"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "title": "Observation",
+      "type": "object"
+    },
+    "Polarity": {
+      "enum": [
+        "present",
+        "absent",
+        "uncertain"
+      ],
+      "title": "Polarity",
+      "type": "string"
+    },
+    "Rationale": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "premises": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Premises",
+          "type": "array"
+        },
+        "claim": {
+          "default": "",
+          "title": "Claim",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/Relation",
+          "default": "supports"
+        },
+        "strength": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Strength",
+          "type": "number"
+        },
+        "premise_polarity": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Polarity"
+          },
+          "title": "Premise Polarity",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "premises",
+        "target"
+      ],
+      "title": "Rationale",
+      "type": "object"
+    },
+    "Relation": {
+      "enum": [
+        "supports",
+        "refutes"
+      ],
+      "title": "Relation",
+      "type": "string"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "score": {
+          "default": 100.0,
+          "title": "Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "text"
+      ],
+      "title": "Span",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "observations": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Observation"
+      },
+      "title": "Observations",
+      "type": "object"
+    },
+    "rationales": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Rationale"
+      },
+      "title": "Rationales",
+      "type": "object"
+    },
+    "diagnoses": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Diagnosis"
+      },
+      "title": "Diagnoses",
+      "type": "object"
+    },
+    "must_not_miss": {
+      "additionalProperties": {
+        "$ref": "#/$defs/MustNotMiss"
+      },
+      "title": "Must Not Miss",
+      "type": "object"
+    },
+    "meta": {
+      "additionalProperties": true,
+      "title": "Meta",
+      "type": "object"
+    }
+  },
+  "required": [
+    "case_id"
+  ],
+  "title": "ReasoningGraph",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from src/clinblueprint (pydantic). Regenerate: make schemas"
+}

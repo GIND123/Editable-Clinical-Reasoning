@@ -111,7 +111,7 @@ A subtle but important check: a model that has already "decided" from the note t
 
 ## 7. What we need from you
 
-Each task has instructions and a template in the [`clinician/`](clinician/) folder, which arrives in the next repository update. Sizes are rough (small / medium / large) so you can plan. **Tasks 1 and 2 come first**, because the benchmark is built on them.
+Each task has instructions and a template in the [`clinician/`](clinician/) folder. Sizes are rough (small / medium / large) so you can plan. **Tasks 1 and 2 come first**, because the benchmark is built on them.
 
 | # | Task | Size | What it involves |
 |---|---|---|---|
@@ -135,7 +135,7 @@ Each task has instructions and a template in the [`clinician/`](clinician/) fold
   - **C. Answer only:** no explanation.
 - **Errors are natural.** We do not plant mistakes. The model is wrong on a realistic fraction of cases by itself.
 - **Outcomes:** how often clinicians *detect* an incorrect model answer; final accuracy after they correct it; time per case; how often they accept wrong advice (automation bias); and whether their confidence tracks the model's actual reliability (trust calibration).
-- **Process:** pre-registration, a power calculation for the detection rate, inter-rater agreement, and IRB or exempt determination. A protocol draft and pre-registration template will be in `clinician/study/`.
+- **Process:** pre-registration, a power calculation for the detection rate, inter-rater agreement, and IRB or exempt determination. The protocol draft, pre-registration template and participant instructions are in [`clinician/study/`](clinician/study/).
 
 ---
 

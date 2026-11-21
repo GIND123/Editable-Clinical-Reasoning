@@ -1,0 +1,60 @@
+# ---------------------------------------------------------------------------
+# DATA GOVERNANCE: credentialed data (MIMIC-IV, MIMIC-IV-Note, DiReCT, MIMIC-CDM,
+# ER-Reason, MedNLI, SCT-Bench held-out) must NEVER be committed. Everything
+# under data/ and outputs/ is ignored except the README placeholders.
+# ---------------------------------------------------------------------------
+data/*
+!data/README.md
+outputs/*
+!outputs/README.md
+checkpoints/
+runs/
+wandb/
+mlruns/
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.gguf
+*.parquet
+*.csv.gz
+*.pkl
+
+# Clinician study raw responses (identifiable rater data stays off git)
+clinician/study/responses/
+
+# Secrets
+.env
+*.pem
+credentials*.json
+.netrc
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# LaTeX
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
+paper/main.pdf
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

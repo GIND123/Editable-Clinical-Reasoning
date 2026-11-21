@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or the ClinEdit-Faith benchmark, please cite it as below."
+title: "Causally Editable Clinical Reasoning (ClinBlueprint)"
+type: software
+authors:
+  - name: "The Causally Editable Clinical Reasoning authors"
+repository-code: "https://github.com/GIND123/Editable-Clinical-Reasoning"
+license: MIT
+version: 0.1.0
+date-released: 2026-11-21
+keywords:
+  - clinical reasoning
+  - faithfulness
+  - causal mediation
+  - sycophancy
+  - interpretability

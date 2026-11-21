@@ -1,0 +1,17 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+seed: 0
+kg_dir: data/raw/direct_kg
+fold_file: data/processed/direct.folds.json
+exclude_folds: [0, 1]
+train_files:
+  - data/processed/direct.graphs.jsonl
+  - data/silver/medcasereasoning_train.silver.jsonl
+bystander_facts: configs/benchmark/bystander_facts.yaml
+init_adapter: outputs/sft/qwen3_4b_fold0/adapter
+lora: {r: 16, alpha: 32, dropout: 0.05}
+beta: 0.1
+lr: 5.0e-6
+grad_accum: 16
+epochs: 1
+output_dir: outputs/dpo/qwen3_4b_fold0

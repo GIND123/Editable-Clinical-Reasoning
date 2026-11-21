@@ -1,0 +1,7 @@
+# Planning values [E]; replace p_detect with pilot estimates.
+n_clinicians: 16
+n_cases: 120
+model_error_rate: 0.35
+p_detect: {A_graph: 0.65, B_cot: 0.45}
+clinician_sd: 0.5
+n_sim: 1000

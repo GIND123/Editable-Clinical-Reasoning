@@ -1,0 +1,12 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+provenance: physionet
+seed: 0
+output_dir: outputs/mech/ic_dpo_qwen3_4b_fold0
+cases: data/benchmark/clinedit_faith/credentialed.cases.jsonl
+adapter: outputs/dpo/qwen3_4b_fold0/adapter    # repeat with the CoT-SFT adapter for the comparison
+max_cases: 100
+n_swaps: 100
+n_patch_cases: 30
+n_attr_cases: 30
+ig_steps: 16

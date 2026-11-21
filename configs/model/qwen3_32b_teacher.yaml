@@ -1,0 +1,13 @@
+# Local teacher for silver graphs (4-bit on one 48 GB GPU). Never a hosted API for PhysioNet text.
+teacher:
+  backend: hf
+  endpoint: null
+  model:
+    name_or_path: Qwen/Qwen3-32B
+    revision: null
+    dtype: bfloat16
+    load_in_4bit: true
+    attn_implementation: sdpa
+    gradient_checkpointing: false
+    model_class: causal_lm
+    max_length: 12288

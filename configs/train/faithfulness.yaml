@@ -1,0 +1,22 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+seed: 0
+kg_dir: data/raw/direct_kg
+fold_file: data/processed/direct.folds.json
+exclude_folds: [0, 1]
+train_files:
+  - data/processed/direct.graphs.jsonl
+  - data/silver/medcasereasoning_train.silver.jsonl
+bystander_facts: configs/benchmark/bystander_facts.yaml
+encoder_adapter: outputs/sft/qwen3_4b_fold0/adapter
+layer: -8                    # mid-late layer; sweep in ablations
+encoding: graph_only         # graph_only | note_in_context
+exclude_dx_slots: true
+head: {d_hidden: 512, n_heads: 8, n_layers: 2, dropout: 0.1}
+lr: 3.0e-4
+lambda_cf: 1.0
+lambda_inv: 1.0
+margin: 0.5
+epochs: 3
+edits_per_case: 3
+output_dir: outputs/faithfulness/qwen3_4b_fold0

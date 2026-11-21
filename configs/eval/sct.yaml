@@ -1,0 +1,11 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+provenance: physionet
+output_dir: outputs/eval/sct_er_reason
+sct_items: data/processed/er_reason.sct.jsonl      # or data/raw/sct_bench/sct_bench.jsonl (provenance: dua)
+dev_frac: 0.3                                      # encounters used only to fit Likert thresholds
+kg_dir: null                                       # open-ended differentials (no KG)
+systems:
+  - {type: clinblueprint, name: cb_hard_qwen3_4b, readout: hard, adapter: outputs/sft/qwen3_4b_fold0/adapter}
+# CoT text-update comparator: run the ER-Reason sct.py protocol locally with the CoT-SFT adapter
+# (same prompts, local model) and score with eval/sct.py; paired comparison per encounter.

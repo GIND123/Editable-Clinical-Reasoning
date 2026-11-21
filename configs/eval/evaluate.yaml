@@ -1,0 +1,32 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+provenance: physionet
+output_dir: outputs/eval/credentialed_fold0
+kg_dir: data/raw/direct_kg
+must_not_miss: configs/schema/must_not_miss.yaml
+benchmark:
+  cases: data/benchmark/clinedit_faith/credentialed.cases.jsonl
+  edits: data/benchmark/clinedit_faith/credentialed.edits.jsonl
+reason_modes: [frozen, re_reason]
+eps: 0.02
+eps_tv: 0.05
+accuracy: true
+match_mode: hierarchical
+systems:
+  - {type: clinblueprint, name: cb_oracle_graph, regime: gold_graph, readout: hard}
+  - {type: clinblueprint, name: cb_hard_qwen3_4b, readout: linear,
+     readout_path: outputs/readout/qwen3_4b_fold0/linear_readout.json,
+     adapter: outputs/sft/qwen3_4b_fold0/adapter,
+     validator_adapter: outputs/validator/qwen3_4b_fold0/adapter,
+     validator_calibration: outputs/validator/qwen3_4b_fold0/calibration.json}
+  - {type: in_context, name: ic_dpo_qwen3_4b, adapter: outputs/dpo/qwen3_4b_fold0/adapter,
+     drafter_adapter: outputs/sft/qwen3_4b_fold0/adapter}
+  - {type: clinblueprint, name: schema_prompting_qwen3_4b, readout: hard}          # untuned backbone + drafter prompt
+  - {type: clinblueprint, name: self_refine_qwen3_4b, readout: hard, adapter: outputs/sft/qwen3_4b_fold0/adapter,
+     drafter_wrapper: self_refine, rounds: 1}
+  - {type: clinblueprint, name: best_of_n_qwen3_4b, readout: hard, adapter: outputs/sft/qwen3_4b_fold0/adapter,
+     drafter_wrapper: best_of_n, n: 8}
+  - {type: counterfactual_multiagent, name: cf_multiagent_qwen3_4b}
+  - {type: cot, name: cot_base_qwen3_4b}
+  - {type: cot, name: cot_sft_qwen3_4b, adapter: outputs/cot_sft/qwen3_4b_fold0/adapter}
+  - {type: note_edit, name: note_edit_qwen3_4b}

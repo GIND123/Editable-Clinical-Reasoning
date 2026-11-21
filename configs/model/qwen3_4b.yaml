@@ -1,0 +1,12 @@
+# Primary backbone. circuit-tracer transcoders exist for Qwen3-4B (verify set name before mech runs).
+model:
+  name_or_path: Qwen/Qwen3-4B
+  revision: null            # PIN a commit hash before the first real run
+  dtype: bfloat16
+  load_in_4bit: false
+  attn_implementation: sdpa # mech suite overrides to eager
+  gradient_checkpointing: true
+  model_class: causal_lm
+  max_length: 8192
+mech:
+  transcoder_set: qwen3-4b-transcoders   # VERIFY in circuit-tracer

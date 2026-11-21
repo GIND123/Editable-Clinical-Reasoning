@@ -1,0 +1,73 @@
+% Nature Machine Intelligence -- Article skeleton.
+% NMI accepts any reasonable format at first submission; convert to the Springer Nature
+% template (sn-jnl) at revision. Limits to check against current NMI guide to authors:
+% abstract <=150 words (unreferenced); main text ~3,000-5,000 words; <=6-8 display items;
+% Methods separate; Extended Data <=10 items.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref,xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\res}[1]{\textcolor{blue}{[#1]}}
+
+\title{Causally editable clinical reasoning: language models whose diagnoses follow valid clinician corrections and resist invalid ones}
+\author{\todo{authors and affiliations}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Language models increasingly explain their clinical reasoning, but the explanation is often not what produces the answer, and models frequently defer to users against the evidence. We introduce \emph{causal editability}: a clinical model's diagnosis should follow valid corrections to its reasoning, flag corrections that contradict the record, and ignore irrelevant ones, and it should do so because the decision is computed through that reasoning. We build ClinBlueprint, a 4--8-billion-parameter model whose diagnosis is mediated by a typed, clinician-editable reasoning graph, and ClinEdit-Faith, a benchmark of edits with physician-derived expected effects from two hospitals. ClinBlueprint matches same-size chain-of-thought models in accuracy \res{X}, follows valid edits \res{X\%} vs \res{Y\%}, flags \res{X\%} of contradicting assertions at a \res{Y\%} false-flag rate, and routes \res{X\%} of diagnostic information through the graph. In a randomized crossover study, clinicians detected \res{X} more model errors with the graph than with text explanations.
+\end{abstract}
+
+\section*{Main}
+\todo{Hook: reasoning traces as explanations or decoration (NMI editorial 2026). Unfaithful CoT \cite{turpin2023,lanham2023,chen2025reasoning}; clinical: right answer wrong reason \cite{rawr2026}; sycophancy \cite{sycophancy_npjdm2025,sycophancy_aim2026}; belief updating on SCT \cite{mccoy2025sct}; explanations do not protect clinicians \cite{jabbour2023,goh2024,qazi_nejmai}.}
+\todo{Gap: no clinical LM is built and evaluated so that its reasoning is the cause of its answer and responds correctly to correction. Contributions (4 axes) and what is \emph{not} claimed (graph structure for accuracy is not new \cite{direct2024}).}
+
+\section*{Results}
+\subsection*{A diagnosis computed through an editable reasoning graph (Fig.~1)}
+\todo{Schema; drafter; hard checks; bottleneck spectrum; hypothetical vs assertion edits; validator.}
+\subsection*{Accuracy survives the bottleneck (Fig.~2)}
+\todo{DiReCT (5-fold), MedCaseReasoning, ER-Reason, MIMIC-CDM, QA sanity; two families, two sizes; matched-data CoT-SFT.}
+\subsection*{Valid edits are followed; contradicted assertions are flagged (Fig.~3)}
+\todo{Mediation rate, asymmetry, invariance; flag sensitivity / false-flag curve; oracle vs model graph; coverage.}
+\subsection*{Belief updates match expert panels at two hospitals (Fig.~4)}
+\todo{ER-Reason SCT (UCSF), DiReCT-derived new findings (BIDMC), SCT-Bench; paired CIs.}
+\subsection*{The decision is routed through the graph (Fig.~5)}
+\todo{Three-path decomposition; graph swap; patching; attribution; SAE; contrast with pattern-matching pathway \cite{aaai2026mech}.}
+\subsection*{Clinicians correct more model errors with the graph (Fig.~6)}
+\todo{Crossover study results.}
+
+\section*{Discussion}
+\todo{What causal editability buys clinically; limits (silver data, single-language, symptom-level ER labels, two sites); relation to concept bottlenecks \cite{koh2020,rudin2019}; deployment considerations; future: interactive settings (out of scope here).}
+
+\section*{Methods}
+\subsection*{Data}
+\todo{DiReCT \cite{direct2024}, MedCaseReasoning \cite{medcasereasoning2025}, ER-Reason \cite{erreason2025}, SCT-Bench \cite{mccoy2025sct}, MIMIC-IV-Ext-CDM \cite{hager2024}, MIMIC-IV-Note \cite{mimiciv2023}; leakage and contamination controls; PhysioNet compliance.}
+\subsection*{Reasoning graph, drafter and hard checks}
+\subsection*{Readouts}
+\todo{Hard readout equation and monotonicity; sign-constrained linear readout; soft slot head; candidate pool.}
+\subsection*{Edits and validator}
+\todo{Operation set \cite{you2026counterfactual}; modes; NegEx-style rules \cite{chapman2001negex}; NLI verifier, isotonic calibration.}
+\subsection*{Training}
+\todo{Silver graphs; LoRA SFT \cite{hu2021lora}; faithfulness losses; DPO \cite{rafailov2023dpo} with hard-readout teacher.}
+\subsection*{ClinEdit-Faith and metrics}
+\subsection*{Mechanistic analyses}
+\todo{Attention knockout \cite{geva2023dissecting}; activation patching \cite{meng2022rome}; integrated gradients \cite{sundararajan2017}; attribution graphs \cite{ameisen2025circuit}; probes with control tasks \cite{hewitt2019}.}
+\subsection*{Clinician study}
+\todo{Williams design \cite{williams1949}; GEE \cite{liang1986}; pre-registration; IRB.}
+\subsection*{Statistics}
+\todo{Cluster bootstrap; paired tests; Learn-then-Test for Claim C \cite{angelopoulos2021ltt}.}
+
+\section*{Data availability}
+\todo{PhysioNet credentialed datasets; public portion release; DUA for SCT-Bench held-out.}
+\section*{Code availability}
+\todo{Repository URL and release tag.}
+\section*{Acknowledgements}\todo{}
+\section*{Author contributions}\todo{CRediT}
+\section*{Competing interests}\todo{}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

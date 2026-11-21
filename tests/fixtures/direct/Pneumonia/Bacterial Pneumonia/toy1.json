@@ -1,0 +1,32 @@
+{
+  "Bacterial Pneumonia$Intermedia_4": {
+    "A sputum culture growing a bacterial pathogen confirms a bacterial cause.$Cause_1": {
+      "Sputum culture: Streptococcus pneumoniae$Input6": {}
+    },
+    "Leukocytosis supports a bacterial process.$Cause_1": {
+      "WBC 16.2$Input6": {}
+    },
+    "Pneumonia$Intermedia_3": {
+      "Focal consolidation on chest imaging indicates pneumonia.$Cause_1": {
+        "right lower lobe consolidation$Input6": {}
+      },
+      "Suspected Pneumonia$Intermedia_2": {
+        "Productive cough is a common presenting symptom of pneumonia.$Cause_1": {
+          "productive cough$Input2": {}
+        },
+        "Fever suggests an infectious process.$Cause_1": {
+          "fevers to 39.2 C$Input2": {}
+        },
+        "Focal crackles suggest alveolar exudate.$Cause_1": {
+          "Crackles at the right lung base$Input5": {}
+        }
+      }
+    }
+  },
+  "input1": "Cough and fever for 3 days.",
+  "input2": "68-year-old man with productive cough and fevers to 39.2 C for three days. He reports pleuritic chest pain on the right. He denies leg swelling. No recent travel.",
+  "input3": "Hypertension. Type 2 diabetes.",
+  "input4": "Non-contributory.",
+  "input5": "Temp 39.2 C, HR 104, RR 24, SpO2 91% on room air. Crackles at the right lung base.",
+  "input6": "WBC 16.2. Chest X-ray: right lower lobe consolidation. Sputum culture: Streptococcus pneumoniae."
+}

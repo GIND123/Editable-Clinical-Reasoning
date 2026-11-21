@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "EditClass": {
+      "enum": [
+        "valid_correction",
+        "counterfactual",
+        "new_finding",
+        "irrelevant",
+        "invalid"
+      ],
+      "title": "EditClass",
+      "type": "string"
+    },
+    "EditMode": {
+      "enum": [
+        "hypothetical",
+        "assertion"
+      ],
+      "title": "EditMode",
+      "type": "string"
+    },
+    "EditOp": {
+      "enum": [
+        "negate",
+        "remove",
+        "replace",
+        "weaken",
+        "intensify",
+        "insert"
+      ],
+      "title": "EditOp",
+      "type": "string"
+    },
+    "ExpectedEffect": {
+      "enum": [
+        "increase",
+        "decrease",
+        "no_change",
+        "flag"
+      ],
+      "title": "ExpectedEffect",
+      "type": "string"
+    },
+    "InsertLink": {
+      "additionalProperties": false,
+      "description": "A rationale to create alongside an inserted observation (gold-provided).\n\nIn ``reason_mode=\"re_reason\"`` links are left empty and the model must\npropose them itself (this is what SCT items test).",
+      "properties": {
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "leaf": {
+          "title": "Leaf",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/Relation",
+          "default": "supports"
+        },
+        "strength": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Strength",
+          "type": "number"
+        },
+        "claim": {
+          "default": "",
+          "title": "Claim",
+          "type": "string"
+        },
+        "refines_leaf": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Refines Leaf"
+        }
+      },
+      "required": [
+        "category",
+        "leaf"
+      ],
+      "title": "InsertLink",
+      "type": "object"
+    },
+    "Polarity": {
+      "enum": [
+        "present",
+        "absent",
+        "uncertain"
+      ],
+      "title": "Polarity",
+      "type": "string"
+    },
+    "Relation": {
+      "enum": [
+        "supports",
+        "refutes"
+      ],
+      "title": "Relation",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "edit_id": {
+      "title": "Edit Id",
+      "type": "string"
+    },
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "op": {
+      "$ref": "#/$defs/EditOp"
+    },
+    "mode": {
+      "$ref": "#/$defs/EditMode",
+      "default": "hypothetical"
+    },
+    "edit_class": {
+      "$ref": "#/$defs/EditClass"
+    },
+    "target_node": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Target Node"
+    },
+    "target_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Target Text"
+    },
+    "new_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "New Text"
+    },
+    "new_polarity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Polarity"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "new_section": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "New Section"
+    },
+    "strength_factor": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Strength Factor"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/$defs/InsertLink"
+      },
+      "title": "Links",
+      "type": "array"
+    },
+    "replace_leaf": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Replace Leaf"
+    },
+    "replace_category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Replace Category"
+    },
+    "measured_dx": {
+      "title": "Measured Dx",
+      "type": "string"
+    },
+    "expected_effect": {
+      "$ref": "#/$defs/ExpectedEffect"
+    },
+    "implied_effect": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ExpectedEffect"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "expected_magnitude": {
+      "anyOf": [
+        {
+          "maximum": 2,
+          "minimum": -2,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expected Magnitude"
+    },
+    "expected_top": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expected Top"
+    },
+    "gold_source": {
+      "default": "construction",
+      "title": "Gold Source",
+      "type": "string"
+    },
+    "physician_verified": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Physician Verified"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Description"
+    },
+    "meta": {
+      "additionalProperties": true,
+      "title": "Meta",
+      "type": "object"
+    }
+  },
+  "required": [
+    "edit_id",
+    "case_id",
+    "op",
+    "edit_class",
+    "measured_dx",
+    "expected_effect"
+  ],
+  "title": "Edit",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from src/clinblueprint (pydantic). Regenerate: make schemas"
+}

@@ -1,0 +1,13 @@
+seed: 0
+kg_dir: data/raw/direct_kg
+bystander_facts: configs/benchmark/bystander_facts.yaml
+n_distractor_categories: 2
+output_dir: data/benchmark/clinedit_faith
+portions:
+  credentialed:                       # PhysioNet release only
+    graphs: data/processed/direct.graphs.jsonl
+    sct: data/processed/er_reason.sct.jsonl
+    n_verify: 250
+  public:                             # open release (check per-article licences)
+    graphs: data/silver/medcasereasoning_test.silver.jsonl   # reference graphs for edits, never trained on
+    n_verify: 250

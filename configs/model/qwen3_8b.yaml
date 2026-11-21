@@ -1,0 +1,10 @@
+# Scale check. LoRA at 8K context ~35-45 GB with checkpointing; use 4-bit if needed.
+model:
+  name_or_path: Qwen/Qwen3-8B
+  revision: null
+  dtype: bfloat16
+  load_in_4bit: false
+  attn_implementation: sdpa
+  gradient_checkpointing: true
+  model_class: causal_lm
+  max_length: 8192

@@ -1,0 +1,18 @@
+# Irrelevant ("bystander") facts for the invariance test. STATUS: DRAFT for clinician review.
+# Every fact must be irrelevant to the diagnosis in ANY of the 25 DiReCT categories.
+# Remove anything with plausible clinical meaning (exposures, occupation, travel,
+# animals, hobbies, family illness, medications, diet). See clinician/tasks/04_bystander_facts.md.
+status: DRAFT
+facts:
+  - The patient prefers morning appointments.
+  - The patient asked for a printed copy of the visit summary.
+  - The patient's preferred pharmacy was updated today.
+  - The patient arrived with a family member who waited outside.
+  - The patient's insurance information was re-verified at registration.
+  - The patient prefers to be addressed by their first name.
+  - The appointment reminder was sent by text message.
+  - The patient asked about parking validation.
+  - The patient's emergency contact details were updated.
+  - The patient's mailing address was confirmed at check-in.
+  - The patient brought a book to read in the waiting room.
+  - The patient's follow-up appointment was rescheduled at their request.

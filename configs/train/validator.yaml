@@ -1,0 +1,15 @@
+seed: 0
+fold_file: data/processed/direct.folds.json
+exclude_folds: [0, 1]
+train_files:
+  - data/processed/direct.graphs.jsonl
+  - data/silver/medcasereasoning_train.silver.jsonl
+model:
+  name_or_path: Qwen/Qwen3-4B
+lora: {r: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj]}
+lr: 1.0e-4
+batch_size: 8
+epochs: 2
+max_length: 1024
+target_sensitivity: 0.80
+output_dir: outputs/validator/qwen3_4b_fold0

@@ -1,0 +1,120 @@
+{
+  "properties": {
+    "item_id": {
+      "title": "Item Id",
+      "type": "string"
+    },
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "vignette": {
+      "title": "Vignette",
+      "type": "string"
+    },
+    "hypothesis": {
+      "title": "Hypothesis",
+      "type": "string"
+    },
+    "new_info": {
+      "title": "New Info",
+      "type": "string"
+    },
+    "gold_update": {
+      "anyOf": [
+        {
+          "maximum": 2,
+          "minimum": -2,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gold Update"
+    },
+    "panel": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Panel"
+    },
+    "timestep": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Timestep"
+    },
+    "differential": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Differential",
+      "type": "array"
+    },
+    "gold_ranking": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gold Ranking"
+    },
+    "physician_rationale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Physician Rationale"
+    },
+    "source": {
+      "default": "sct",
+      "title": "Source",
+      "type": "string"
+    },
+    "provenance": {
+      "default": "dua",
+      "title": "Provenance",
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_id",
+    "case_id",
+    "vignette",
+    "hypothesis",
+    "new_info"
+  ],
+  "title": "SCTItem",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from src/clinblueprint (pydantic). Regenerate: make schemas"
+}

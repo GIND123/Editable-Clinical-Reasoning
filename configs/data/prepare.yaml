@@ -1,0 +1,18 @@
+output_dir: data/processed
+seed: 0
+folds: 5
+kg_dir: data/raw/direct_kg                              # from github.com/wbw520/DiReCT/diagnostic_kg
+direct_dir: data/raw/physionet/mimic-iv-ext-direct/samples   # VERIFY folder name after download
+direct_subject_map: data/processed/direct_subject_map.json   # scripts/data/link_direct_subjects.py
+medcasereasoning:
+  enabled: true
+  train_jsonl: null    # null = load from Hugging Face (zou-lab/MedCaseReasoning)
+  test_jsonl: null
+er_reason_dir: data/raw/physionet/er-reason
+er_reason_input_mode: one_liner_plus_history   # or ed_note_truncated
+mimic_cdm_dir: data/raw/physionet/mimic-iv-ext-cdm
+mimic_note_discharge: data/raw/physionet/mimic-iv-note/note/discharge.csv.gz
+mimic_note_limit: 60000
+extra_public_corpora: {}
+#  pmc_patients: {limit: 50000}
+#  multicare: {path: data/raw/multicare/cases.csv, limit: 50000}

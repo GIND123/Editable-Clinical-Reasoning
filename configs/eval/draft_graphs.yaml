@@ -1,0 +1,10 @@
+defaults:
+  - ../model/qwen3_4b.yaml
+kg_dir: data/raw/direct_kg
+must_not_miss: configs/schema/must_not_miss.yaml
+adapter: outputs/sft/qwen3_4b_fold0/adapter
+input_files:
+  - data/processed/direct.graphs.jsonl
+drafter: {k_categories: 3, constrained: true, temperature: 0.0}
+limit: null
+output_file: data/drafts/qwen3_4b_fold0.train_drafts.jsonl

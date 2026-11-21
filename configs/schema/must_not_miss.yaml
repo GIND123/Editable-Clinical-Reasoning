@@ -1,0 +1,33 @@
+# Must-not-miss diagnoses per DiReCT disease category.
+# STATUS: DRAFT, prepared as a starting point for the clinician co-author.
+# The clinician edits, then sets status: APPROVED and initials in approved_by.
+# (clinician/tasks/01_must_not_miss_lists.md). Strict runs refuse a DRAFT file.
+status: DRAFT
+approved_by: ""
+version: 0
+categories:
+  Acute Coronary Syndrome: [Aortic dissection, Pulmonary embolism, Tension pneumothorax, Cardiac tamponade, Esophageal rupture]
+  Adrenal Insufficiency: [Adrenal crisis, Septic shock, Pituitary apoplexy]
+  Alzheimer: [Delirium, Subdural hematoma, Normal pressure hydrocephalus, Brain tumor, Encephalitis]
+  Aortic Dissection: [Acute coronary syndrome, Pulmonary embolism, Cardiac tamponade, Ruptured abdominal aortic aneurysm]
+  Asthma: [Anaphylaxis, Pneumothorax, Foreign body aspiration, Pulmonary embolism, Acute heart failure]
+  Atrial Fibrillation: [Thyrotoxicosis, Acute coronary syndrome, Pulmonary embolism, Sepsis, Pre-excited atrial fibrillation (WPW)]
+  COPD: [Pneumothorax, Pulmonary embolism, Acute heart failure, Pneumonia, Acute coronary syndrome]
+  Cardiomyopathy: [Acute coronary syndrome, Myocarditis, Cardiac tamponade, Pulmonary embolism]
+  Diabetes: [Diabetic ketoacidosis, Hyperosmolar hyperglycemic state, Hypoglycemia, Sepsis]
+  Epilepsy: [Status epilepticus, Stroke, Meningitis or encephalitis, Intracranial hemorrhage, Hypoglycemia, Arrhythmic (convulsive) syncope]
+  Gastritis: [Acute coronary syndrome, Perforated peptic ulcer, Acute pancreatitis, Upper gastrointestinal bleeding, Gastric cancer]
+  Gastro-oesophageal Reflux Disease: [Acute coronary syndrome, Esophageal cancer, Esophageal rupture]
+  Heart Failure: [Acute coronary syndrome, Cardiac tamponade, Pulmonary embolism, Acute valvular regurgitation, Myocarditis]
+  Hyperlipidemia: [Hypertriglyceridemia-induced pancreatitis, Hypothyroidism (secondary cause), Nephrotic syndrome (secondary cause)]
+  Hypertension: [Hypertensive emergency, Aortic dissection, Pheochromocytoma, Preeclampsia, Stroke]
+  Migraine: [Subarachnoid hemorrhage, Meningitis, Cerebral venous sinus thrombosis, Giant cell arteritis, Intracranial mass, Cervical artery dissection]
+  Multiple Sclerosis: [Neuromyelitis optica spectrum disorder, Spinal cord compression, Stroke, CNS infection, CNS lymphoma]
+  Peptic Ulcer Disease: [Perforation, Upper gastrointestinal bleeding, Gastric cancer, Acute coronary syndrome, Acute pancreatitis]
+  Pituitary Disease: [Pituitary apoplexy, Adrenal crisis, Optic chiasm compression, Diabetes insipidus]
+  Pneumonia: [Sepsis, Pulmonary embolism, Empyema, Tuberculosis, Lung cancer (post-obstructive), Acute heart failure]
+  Pulmonary Embolism: [Acute coronary syndrome, Aortic dissection, Tension pneumothorax, Cardiac tamponade, Pneumonia]
+  Stroke: [Hypoglycemia, Intracranial hemorrhage, Seizure with Todd paralysis, Aortic dissection, CNS infection, Cervical artery dissection]
+  Thyroid Disease: [Thyroid storm, Myxedema coma, Thyroid cancer, Airway compression]
+  Tuberculosis: [Lung cancer, Nontuberculous mycobacterial infection, HIV coinfection, Miliary tuberculosis, Tuberculous meningitis]
+  Upper Gastrointestinal Bleeding: [Variceal hemorrhage, Hemorrhagic shock, Aortoenteric fistula, Perforated ulcer]

@@ -1,0 +1,12 @@
+defaults:
+  - ../model/qwen3_32b_teacher.yaml
+kg_dir: data/raw/direct_kg
+must_not_miss: configs/schema/must_not_miss.yaml
+input_files:
+  - data/processed/medcasereasoning.train.records.jsonl
+  # - data/processed/mimic_note.records.jsonl     # PhysioNet: local teacher only (enforced)
+limit: null
+max_new_tokens: 3072
+n_retries: 2
+min_grounding: 0.8
+output_file: data/silver/medcasereasoning_train.silver.jsonl

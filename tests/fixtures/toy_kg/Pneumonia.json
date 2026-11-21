@@ -1,0 +1,5 @@
+{"diagnostic": {"Suspected Pneumonia": {"Pneumonia": {"Bacterial Pneumonia": [], "Viral Pneumonia": []}}},
+ "knowledge": {"Suspected Pneumonia": {"Symptoms": "fever; cough; pleuritic chest pain; dyspnea", "Signs": "crackles; rhonchi; bronchial breath sounds"},
+               "Pneumonia": "new infiltrate, opacity or consolidation on chest imaging",
+               "Bacterial Pneumonia": "positive sputum or blood culture for a bacterial pathogen; lobar consolidation; leukocytosis",
+               "Viral Pneumonia": "positive respiratory viral PCR; bilateral interstitial infiltrates"}}

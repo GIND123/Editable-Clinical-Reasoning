@@ -1,0 +1,14 @@
+kg_dir: data/raw/direct_kg
+fold_file: data/processed/direct.folds.json
+exclude_folds: [0, 1]
+train_files:
+  - data/drafts/qwen3_4b_fold0.train_drafts.jsonl   # model-drafted graphs on training cases (robust readout)
+readout:
+  ancestor_decay: 0.5
+  candidate_mode: kg_expand
+  uncertain_factor: 0.5
+allow_bypass_features: false   # true only for the bypass ablation
+epochs: 300
+lr: 0.1
+l2: 1.0e-3
+output_dir: outputs/readout/qwen3_4b_fold0
